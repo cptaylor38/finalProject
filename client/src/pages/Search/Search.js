@@ -3,18 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Home = props => {
 
-    // const [background, setBackground] = useState({ display: `url('https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')` })
     const [zipInput, setZipInput] = useState({ zip: '27292' });
 
-    // const fetchPhotos = async () => {
-    //     const data = await fetch(`https://api.unsplash.com//photos/random/?client_id=0772e999bd6d26c4469b365947dba1798abd492be96f5cc0bc48d59d9e02cb17&query=house&count=1`)
-    //     const photo = await data.json();
-    //     let image = photo[0].urls.raw;
-    //     console.log(photo[0].urls.raw);
-    //     setBackground({ display: `url(${image})` });
-    // }
 
-    // useEffect(() => { fetchPhotos() }, []);
 
     return (
         <div>
