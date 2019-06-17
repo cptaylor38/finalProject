@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './homeStyle.css';
+import Navbar from 'react-bootstrap/Navbar';
+
+
 
 const Home = props => {
+    
 
     // const [background, setBackground] = useState({ display: `url('https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')` })
     const [zipInput, setZipInput] = useState({ zip: '27292' });
@@ -39,6 +43,8 @@ const Home = props => {
 
 
     return (
+
+        
         <div>
             <div className='container-fluid pageContainer' style={backgroundStyle}>
                 <div className='col-lg-4 col-md-4 col-sm-12'>
@@ -63,6 +69,7 @@ const Home = props => {
             </ div>
         </div>
     )
+    
 
 }
 
