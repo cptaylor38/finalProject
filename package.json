@@ -25,8 +25,11 @@
   },
   "homepage": "https://github.com/cptaylor38/finalProject#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "concurrently": "^4.1.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.6.0",
     "path": "^0.12.7"
   }
 }
