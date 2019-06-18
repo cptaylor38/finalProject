@@ -1,0 +1,68 @@
+.pageContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row wrap;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+nav > p
+{
+    flex: 1;
+}
+
+.col-lg-6 .col-md-6 .col-sm-12
+{
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+    align-items: center;
+    flex-direction: row wrap;
+}
+
+p
+{
+    flex: 1;
+    text-align: center;
+}
+
+.zipContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.zipContainer > button
+{
+    margin-top: 10px;
+}
+
+.locationInfo
+{
+    color: white;
+    text-align: right;
+}
+
+.locationInfo > h1
+{
+    margin-bottom: 30px;
+}
+
+.accountContainer
+{
+    color: white;
+}

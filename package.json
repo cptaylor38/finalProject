@@ -1,5 +1,5 @@
 {
-  "name": "finalproject",
+  "name": "finalProject",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,6 +8,7 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
@@ -16,20 +17,19 @@
     "type": "git",
     "url": "git+https://github.com/cptaylor38/finalProject.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cptaylor38/finalProject/issues"
   },
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.19.1"
-  },
+  "homepage": "https://github.com/cptaylor38/finalProject#readme",
   "dependencies": {
-    "axios": "^0.18.0",
-    "express": "^4.16.3",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
-  },
-  "homepage": "https://github.com/cptaylor38/finalProject#readme"
+    "axios": "^0.19.0",
+    "concurrently": "^4.1.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.0",
+    "path": "^0.12.7"
+  }
 }
