@@ -4,12 +4,12 @@ const Search = props => {
 
 
 
-    useEffect(() => {
-        const { search } = this.props.match.params
-        const { zipData } = this.props.location.state
-        console.log({ search });
-        console.log({ zipData });
-    }, []);
+    // useEffect(() => {
+    //     const { search } = this.props.match.params
+    //     const { zipData } = this.props.location.state
+    //     console.log({ search });
+    //     console.log({ zipData });
+    // }, []);
 
     // const [zipData, setZipData] = useState({});
     // useEffect(() => { fetchregionInfo() }, []);
@@ -29,7 +29,7 @@ const Search = props => {
 
     return (
         <div>
-            something goes here
+            
         </div>
     )
 
