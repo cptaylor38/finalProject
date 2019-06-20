@@ -1,11 +1,8 @@
-.pageContainer
+.container-fluid .pageContainer
 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row wrap;
-    height: 100vh;
-    width: 100vw;
 }
 
 nav
@@ -15,54 +12,31 @@ nav
     flex-direction: row;
 }
 
-nav > p
-{
-    flex: 1;
-}
-
-.col-lg-6 .col-md-6 .col-sm-12
+.searchCriteria
 {
     display: flex;
-    justify-content: space-around;
-    flex: 1;
-    align-items: center;
-    flex-direction: row wrap;
+    justify-content: center;
+    flex-flow: row wrap;
+    flex-flow: row wrap;
 }
 
-p
-{
-    flex: 1;
-    text-align: center;
-}
-
-.zipContainer
+.zipCol
 {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
-    color: white;
 }
 
-.zipContainer > button
+.resultsCol
 {
-    margin-top: 10px;
+    flex: 1;
 }
 
-.locationInfo
+.resultsCol > p
 {
-    color: white;
-    text-align: right;
+    padding-top: 25px;
+    font-size: 22px;
 }
 
-.locationInfo > h1
-{
-    margin-bottom: 30px;
-}
 
-.accountContainer
-{
-    color: white;
-}
+

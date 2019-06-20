@@ -6,14 +6,34 @@ const axios = require('axios');
 router.route('/zipcode/:zipcode').get((req, res) => {
     axios.get(`http://api.zippopotam.us/us/${req.params.zipcode}`)
         .then((response) => {
-            console.log(response);
-            res.send(response);
+            let data = {
+                dataStructure: response.data
+            }
+            res.send(data.dataStructure);
         }).catch(err => {
             console.log(err)
         });
 });
 
-router.route('/listing').get()
+router.route('/listings/:city').get((req, res) => {
+    const craigslist = require('node-craigslist'),
+        client = new craigslist.Client({
+            city: req.params.city
+        }),
+        options = {
+            category: 'waa'
+        };
+
+    client
+        .list(options)
+        .then((listings) => {
+            // play with listings here...
+            res.send(listings);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+});
 
 module.exports = router
 // module.exports = function (app) {
