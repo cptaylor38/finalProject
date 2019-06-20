@@ -1,4 +1,7 @@
 require('dotenv').config();
+const key = require("../../models/spotifykey");
+const Spotify = require('node-spotify-api');
+const spotify = new Spotify(key.spotify);
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -15,24 +18,39 @@ router.route('/zipcode/:zipcode').get((req, res) => {
         });
 });
 
-router.route('/listings/:city').get((req, res) => {
-    const craigslist = require('node-craigslist'),
-        client = new craigslist.Client({
-            city: req.params.city
-        }),
-        options = {
-            category: 'waa'
-        };
+router.route('/tracks/:track').get((req, res) => {
+    let userQuery = req.params.track;
+    spotify.search({ type: 'track', query: userQuery, limit: 10 }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
+        else {
+            const extractedData = data.tracks.items.map((object, index) => {
+                let id = index;
+                let artist = object.artists[0].name;
+                let name = object.name;
+                let url = object.preview_url;
+                let album = object.album.name;
+                let albumURL = object.external_urls.spotify;
 
-    client
-        .list(options)
-        .then((listings) => {
-            // play with listings here...
-            res.send(listings);
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+                if (artist && name && url && album && id && albumURL) {
+                    const Query = {
+                        id: id + 1,
+                        artist: artist,
+                        name: name,
+                        url: url,
+                        album: album,
+                        albumURL: albumURL
+                    }
+                    console.log(Query);
+                    return Query;
+                }
+
+            });
+            console.log(extractedData);
+            res.send(extractedData);
+        }
+    })
 });
 
 module.exports = router

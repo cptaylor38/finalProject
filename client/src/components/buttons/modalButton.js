@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-// const jQuery = require('jquery');
-// import colorbox from 'jquery-colorbox';
 
 
 const ModalButton = props => {

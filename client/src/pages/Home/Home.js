@@ -3,9 +3,10 @@ import API from "../../utils/API";
 import Navbar from "../../components/Nav/navbar";
 import './homeStyle.css';
 import SearchCard from '../../components/searchCard/searchCard';
-import ListItems from '../../components/craigslist/Craigslist';
+import TrackItems from '../../components/spotify/Spotify';
 import ModalObject from '../../components/Modal/Modal';
 import { Modal } from 'antd';
+import Iframe from 'react-iframe';
 
 const Home = props => {
 
@@ -15,7 +16,7 @@ const Home = props => {
         city: '',
         state: ''
     });
-    const [listings, setListings] = useState([]);
+    const [tracks, setTracks] = useState([]);
     const [modalView, setmodalView] = useState(false);
     const [modalURL, setmodalURL] = useState('');
 
@@ -23,24 +24,24 @@ const Home = props => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setZipValue(zipInput);
-        setListings([]);
+        setTracks([]);
         const data = zipInput;
         API.getZip(data)
             .then(res => {
                 let city = res.data.places[0]['place name'];
                 let state = res.data.places[0]['state'];
                 setZipValue({ city: city, state: state, zipcode: zipInput });
-                getListings(city);
+                gettracks(city);
             })
             .catch(err => console.log(err));
         setZipInput('');
     }
 
-    const getListings = (city) => {
-        API.getListingsData(city)
+    const gettracks = (city) => {
+        API.getTracksData(city)
             .then(res => {
-                console.log('getListingsData ran');
-                setListings(res.data)
+                console.log(res.data);
+                setTracks(res.data)
             })
             .catch(err => console.log(err));
     }
@@ -50,23 +51,10 @@ const Home = props => {
             return <SearchCard zipcode={zipValue.zipcode} city={zipValue.city} state={zipValue.state} />
     }
 
-    const generateModal = (url) => {
+    const showModal = (url) => {
         console.log('new url' + url);
         setmodalView(true);
         setmodalURL(url);
-        return <Modal
-            title="Basic Modal"
-            visible={modalView}
-            onOk={handleOk}
-            onCancel={handleCancel}
-            url={modalURL}
-        >
-            <something>something</something>
-        </Modal>
-    }
-
-    const showModal = () => {
-        setmodalView(true);
     };
 
 
@@ -95,8 +83,25 @@ const Home = props => {
                 </div>
             </div>
             <div className='container-fluid pageContainer'>
-                {listings ? listings.map(item => <ListItems key={item.pid} data={item} generateModal={generateModal} />) : ''}
-                <div className='modalHolder'></div>
+                {tracks && tracks.length !== 0 ? tracks.filter(item => item != null).map(item => <TrackItems key={item.id} data={item} showModal={showModal} />) : ''}
+                <Modal
+                    title="Basic Modal"
+                    visible={modalView}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                    url={modalURL}
+                    okButtonProps={{ disabled: true }}
+                    cancelButtonProps={{ disabled: true }}
+                >
+                    <Iframe url={modalURL}
+                        width="60vw"
+                        height="60vh"
+                        id="myId"
+                        className="myClassname"
+                        display="initial"
+                        position="relative" />
+                </Modal>
+
             </ div>
         </div>
     )
