@@ -26,28 +26,30 @@ router.route('/tracks/:track').get((req, res) => {
         }
         else {
             const extractedData = data.tracks.items.map((object, index) => {
-                let id = index;
+                console.log(object.album.images[0]);
+                let id = object.album.id;
                 let artist = object.artists[0].name;
                 let name = object.name;
                 let url = object.preview_url;
                 let album = object.album.name;
                 let albumURL = object.external_urls.spotify;
+                let imageURL = object.album.images[0].url;
 
-                if (artist && name && url && album && id && albumURL) {
+                if (artist && name && url && album && id && albumURL && imageURL) {
                     const Query = {
-                        id: id + 1,
+                        id: id,
                         artist: artist,
                         name: name,
                         url: url,
                         album: album,
-                        albumURL: albumURL
+                        albumURL: albumURL,
+                        imageURL: imageURL
                     }
                     console.log(Query);
                     return Query;
                 }
 
             });
-            console.log(extractedData);
             res.send(extractedData);
         }
     })

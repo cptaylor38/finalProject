@@ -16,14 +16,7 @@ const Navbar = props => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
-                    <li className="nav-item dropdown">
-                        <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown link</Link>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <Link className="dropdown-item" to="#">Account</Link>
-                            <Link className="dropdown-item" to="#">Sign Out</Link>
-                        </div>
-                    </li>
+                    <button onClick={event => props.onClick(event)}>Sign Out</button>
                 </ul>
             </div>
         </nav>

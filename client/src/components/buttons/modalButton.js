@@ -5,7 +5,7 @@ const ModalButton = props => {
 
 
     return (
-        <button onClick={() => props.onClick(props.url)}>{props.id}</button>
+        <button onClick={() => props.onClick(props.url)}>Preview Song</button>
     )
 }
 

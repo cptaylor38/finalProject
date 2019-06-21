@@ -3,10 +3,11 @@ import API from "../../utils/API";
 import Navbar from "../../components/Nav/navbar";
 import './homeStyle.css';
 import SearchCard from '../../components/searchCard/searchCard';
-import TrackItems from '../../components/spotify/Spotify';
+import TrackItems from '../../components/trackItem/TrackItem';
 import ModalObject from '../../components/Modal/Modal';
 import { Modal } from 'antd';
 import Iframe from 'react-iframe';
+import App from '../../utils/firebase';
 
 const Home = props => {
 
@@ -19,7 +20,6 @@ const Home = props => {
     const [tracks, setTracks] = useState([]);
     const [modalView, setmodalView] = useState(false);
     const [modalURL, setmodalURL] = useState('');
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,6 +37,10 @@ const Home = props => {
         setZipInput('');
     }
 
+    const signOut = () => {
+        App.auth().signOut()
+    }
+
     const gettracks = (city) => {
         API.getTracksData(city)
             .then(res => {
@@ -51,10 +55,10 @@ const Home = props => {
             return <SearchCard zipcode={zipValue.zipcode} city={zipValue.city} state={zipValue.state} />
     }
 
-    const showModal = (url) => {
-        console.log('new url' + url);
+    const showModal = (modalURL) => {
+        console.log('new modalURL' + modalURL);
         setmodalView(true);
-        setmodalURL(url);
+        setmodalURL(modalURL);
     };
 
 
@@ -70,7 +74,7 @@ const Home = props => {
 
     return (
         <div>
-            <Navbar />
+            <Navbar onClick={signOut} />
             <div className='jumbotron-fluid searchCriteria'>
                 <div className='col zipCol'>
                     <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
@@ -84,25 +88,17 @@ const Home = props => {
             </div>
             <div className='container-fluid pageContainer'>
                 {tracks && tracks.length !== 0 ? tracks.filter(item => item != null).map(item => <TrackItems key={item.id} data={item} showModal={showModal} />) : ''}
-                <Modal
-                    title="Basic Modal"
-                    visible={modalView}
-                    onOk={handleOk}
-                    onCancel={handleCancel}
-                    url={modalURL}
-                    okButtonProps={{ disabled: true }}
-                    cancelButtonProps={{ disabled: true }}
-                >
-                    <Iframe url={modalURL}
-                        width="60vw"
-                        height="60vh"
-                        id="myId"
-                        className="myClassname"
-                        display="initial"
-                        position="relative" />
-                </Modal>
-
             </ div>
+            <ModalObject
+                visible={modalView}
+                onOk={handleOk}
+                style={{ height: '800px', width: '800px' }}
+                onCancel={handleCancel}
+                url={modalURL}
+                okButtonProps={{ disabled: true }}
+                cancelButtonProps={{ disabled: true }}
+            ></ModalObject>
+            <div id='modalRoot'></div>
         </div>
     )
 }
