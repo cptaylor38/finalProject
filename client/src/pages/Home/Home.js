@@ -4,7 +4,6 @@ import Navbar from "../../components/Nav/navbar";
 import './homeStyle.css';
 import SearchCard from '../../components/searchCard/searchCard';
 import TrackItems from '../../components/trackItem/TrackItem';
-import ModalObject from '../../components/Modal/Modal';
 import { Modal } from 'antd';
 import Iframe from 'react-iframe';
 import App from '../../utils/firebase';
@@ -89,7 +88,7 @@ const Home = props => {
             <div className='container-fluid pageContainer'>
                 {tracks && tracks.length !== 0 ? tracks.filter(item => item != null).map(item => <TrackItems key={item.id} data={item} showModal={showModal} />) : ''}
             </ div>
-            <ModalObject
+            <Modal
                 visible={modalView}
                 onOk={handleOk}
                 style={{ height: '800px', width: '800px' }}
@@ -97,8 +96,12 @@ const Home = props => {
                 url={modalURL}
                 okButtonProps={{ disabled: true }}
                 cancelButtonProps={{ disabled: true }}
-            ></ModalObject>
-            <div id='modalRoot'></div>
+            ><Iframe url={modalURL}
+                id="myId"
+                className="myClassname"
+                display="initial"
+                position="relative" />
+            </Modal>
         </div>
     )
 }
