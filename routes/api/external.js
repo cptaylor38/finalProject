@@ -1,4 +1,7 @@
 require('dotenv').config();
+const key = require("../../models/spotifykey");
+const Spotify = require('node-spotify-api');
+const spotify = new Spotify(key.spotify);
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -6,14 +9,51 @@ const axios = require('axios');
 router.route('/zipcode/:zipcode').get((req, res) => {
     axios.get(`http://api.zippopotam.us/us/${req.params.zipcode}`)
         .then((response) => {
-            console.log(response);
-            res.send(response);
+            let data = {
+                dataStructure: response.data
+            }
+            res.send(data.dataStructure);
         }).catch(err => {
             console.log(err)
         });
 });
 
-router.route('/listing').get()
+router.route('/tracks/:track').get((req, res) => {
+    let userQuery = req.params.track;
+    spotify.search({ type: 'track', query: userQuery, limit: 10 }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
+        else {
+            const extractedData = data.tracks.items.map((object, index) => {
+                console.log(object.album.images[0]);
+                let id = object.album.id;
+                let artist = object.artists[0].name;
+                let name = object.name;
+                let url = object.preview_url;
+                let album = object.album.name;
+                let albumURL = object.external_urls.spotify;
+                let imageURL = object.album.images[0].url;
+
+                if (artist && name && url && album && id && albumURL && imageURL) {
+                    const Query = {
+                        id: id,
+                        artist: artist,
+                        name: name,
+                        url: url,
+                        album: album,
+                        albumURL: albumURL,
+                        imageURL: imageURL
+                    }
+                    console.log(Query);
+                    return Query;
+                }
+
+            });
+            res.send(extractedData);
+        }
+    })
+});
 
 module.exports = router
 // module.exports = function (app) {
