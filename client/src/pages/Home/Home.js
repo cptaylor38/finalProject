@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import API from "../../utils/API";
 import Navbar from '../../components/Nav/navbar';
 import './homeStyle.css';
-import Navbar from 'react-bootstrap/Navbar';
 
 
 
