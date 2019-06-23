@@ -20,7 +20,7 @@ nav
     flex-flow: row wrap;
 }
 
-.zipCol
+.moodCol
 {
     display: flex;
     justify-content: center;
