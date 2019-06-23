@@ -20,7 +20,7 @@ router.route('/zipcode/:zipcode').get((req, res) => {
 
 router.route('/tracks/:track').get((req, res) => {
     let userQuery = req.params.track;
-    spotify.search({ type: 'track', query: userQuery, limit: 10 }, function (err, data) {
+    spotify.search({ type: 'track', query: userQuery, limit: 20 }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }

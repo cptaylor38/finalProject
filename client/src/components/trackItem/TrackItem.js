@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../buttons/modalButton';
+import TrackModal from '../Modal/Modal';
+import useModal from '../hooks/useModal';
 
-
-const Listing = props => {
-
-    const id = props.data.id;
-    const key = props.data.id;
-
+const TrackItem = props => {
+    const { isShowing, toggle } = useModal();
 
     return (
-        <div>
+        <React.Fragment>
             <div className='row'>
                 <div className='container'>
                     <div className='col-lg-4 col-md-4 col-lg-12'>
@@ -19,12 +16,19 @@ const Listing = props => {
                         <h4>{props.data.name}</h4>
                         <h5>{props.data.artist}</h5>
                         <a href={props.data.albumURL} target='_blank'>Find this on spotify.</a>
-                        <Button url={props.data.url} key={key} id={id} onClick={props.showModal} />
+                        <button className="button-default" onClick={toggle}>Preview Song</button>
+                        <div className='modalSection'>
+                            <TrackModal
+                                isShowing={isShowing}
+                                hide={toggle}
+                                url={props.data.url}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
     )
 }
 
-export default Listing;
+export default TrackItem;
