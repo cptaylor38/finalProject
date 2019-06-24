@@ -1,9 +1,17 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import App from "../../utils/firebase";
-import { AuthContext } from "../../utils/Auth";
+import SignIn from '../../components/forms/SignIn/SignIn';
+import Register from '../../components/forms/Register/Register';
+import Jumbotron from '../../components/launchJumbo/launchJumbo';
+import API from '../../utils/API';
+
+import './Login.css';
 
 const Login = ({ history }) => {
+
+    const [newUser, setNewUser] = useState(false);
+
     const handleLogin = useCallback(async event => {
         event.preventDefault();
         const { email, password } = event.target.elements;
@@ -13,31 +21,44 @@ const Login = ({ history }) => {
                 .signInWithEmailAndPassword(email.value, password.value);
             history.push("/");
         } catch (error) {
-            history.push('/signup');
+            setNewUser(true);
+            console.log(error);
         }
     }, [history]);
 
-    const { currentUser } = useContext(AuthContext);
+    const handleSignUp = useCallback(async event => {
+        event.preventDefault();
+        const { email, password, username } = event.target.elements;
+        let userName = username.value;
+        try {
+            await App
+                .auth()
+                .createUserWithEmailAndPassword(email.value, password.value)
+                .then(res => {
+                    console.log(res.user.uid);
+                    createMongoUser(res.user.uid, userName);
+                });
+            history.push("/");
+        } catch (error) {
+            alert(error);
+        }
+    }, [history]);
 
-    if (currentUser) {
-        return <Redirect to="/" />
+    const createMongoUser = (userId, username) => {
+        API.createUser({ id: userId, username: username })
+            .then(res => {
+                console.log(res + 'createUserapi .then() on login.js');
+            })
+            .catch(err => console.log(err + 'createUser .catch() on login.js'));
     }
 
     return (
-        <div>
-            <h1>Login!</h1>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Email
-                <input type="email" name="email" placeholder="Email" />
-                </label>
-                <label>
-                    Password
-                <input type="password" name="password" placeholder="Password" />
-                </label>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
+        <>
+            <Jumbotron />
+            <div className='container-fluid formContainer'>
+                {!newUser ? (<SignIn onSubmit={handleLogin} setNewUser={setNewUser} />) : (<Register onSubmit={handleSignUp} />)}
+            </div>
+        </>
     )
 };
 
