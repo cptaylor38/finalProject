@@ -1,0 +1,14 @@
+.registerContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inputField
+{
+    align-self: center;
+    max-width: 200px;
+    padding: 5px;
+    margin-bottom: 5px;
+}

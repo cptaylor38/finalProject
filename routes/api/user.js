@@ -2,8 +2,12 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 
 
-module.exports = function (app) {
-    router
-        .route('/')
-        .get(usersController.findAll);
-}
+router
+    .route('/create')
+    .post(usersController.create);
+
+router
+    .route('/:id')
+    .get(usersController.getProfile);
+
+module.exports = router;
