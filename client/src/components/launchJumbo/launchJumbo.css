@@ -1,0 +1,12 @@
+.jumbotron
+{
+    background-color: greenyellow !important;
+    border-bottom: 5px solid black;
+}
+
+@media (min-width: 576px)
+{
+    .jumbotron{
+        padding: 0;
+    }
+}

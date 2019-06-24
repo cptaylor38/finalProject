@@ -1,0 +1,13 @@
+.trackContainer
+{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    align-items: center;
+}
+
+.trackContainer > img
+{
+    width: 200px;
+    height: 200px;
+}
