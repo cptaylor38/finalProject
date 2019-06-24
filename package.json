@@ -37,6 +37,7 @@
     "node-spotify-api": "^1.1.1",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
-    "react-iframe": "^1.8.0"
+    "react-iframe": "^1.8.0",
+    "wow.js": "^1.2.2"
   }
 }

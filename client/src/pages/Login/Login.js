@@ -1,5 +1,5 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { withRouter, Redirect } from "react-router-dom";
+import React, { useCallback, useState } from "react";
+import { withRouter } from "react-router-dom";
 import App from "../../utils/firebase";
 import SignIn from '../../components/forms/SignIn/SignIn';
 import Register from '../../components/forms/Register/Register';
@@ -56,7 +56,7 @@ const Login = ({ history }) => {
         <>
             <Jumbotron />
             <div className='container-fluid formContainer'>
-                {!newUser ? (<SignIn onSubmit={handleLogin} setNewUser={setNewUser} />) : (<Register onSubmit={handleSignUp} />)}
+                {!newUser ? (<SignIn onSubmit={handleLogin} setNewUser={setNewUser} />) : (<Register onSubmit={handleSignUp} newUser={newUser} setNewUser={setNewUser} />)}
             </div>
         </>
     )

@@ -49,19 +49,27 @@ const Home = props => {
 
         
         <div>
-            <Navbar onClick={signOut} />
-            <h1>Welcome, {userName ? userName : ''}</h1>
-            <div className='jumbotron-fluid searchCriteria'>
-                <div className='col moodCol'>
-                    <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
-                        <input type='text' name='moodText' id='moodText' value={moodInput} placeholder='Mood' onChange={e => setMoodInput(e.target.value)}></input>
-                        <button>Search</button>
-                    </form>
+            <Navbar onClick={signOut} user={userName} />
+            <div className='container-fluid pageContainer'>
+                <div className='row'>
+                    <div className='searchCol col-lg-5 col-md-5 col-sm-12'>
+                        <div className='container searchCriteria'>
+                            <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
+                                <input type='text' name='moodText' id='moodText' value={moodInput} placeholder='Mood' onChange={e => setMoodInput(e.target.value)}></input>
+                                <button>Search</button>
+                            </form>
+                            <div className='resultsContainer'>
+                                {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
+                            </ div>
+                        </div>
+                    </div>
+                    <div className='journalCol col-lg-5 col-md-5 col-sm-12'>
+                        <div className='container journalEntries'>
+                            <h2><button type='button'>Archives</button><button type='button'>Write</button></h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className='container-fluid pageContainer'>
-                {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
-            </ div>
         </div>
     )
 }
