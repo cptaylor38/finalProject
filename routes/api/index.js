@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const externalRoutes = require("./external");
 const userRoutes = require("./user");
-const listingsRoutes = require("./listings")
+const entriesRoutes = require("./entry")
 
 router.use("/external", externalRoutes);
 router.use("/user", userRoutes);
-router.use("/listings", listingsRoutes);
+router.use("/entries", entriesRoutes);
 
 module.exports = router;
