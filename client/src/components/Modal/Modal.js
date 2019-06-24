@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Iframe from 'react-iframe';
 import './Modal.css';
-import 'bootstrap';
+import WOW from 'wowjs';
 
 const Modal = ({ isShowing, hide, url }) => isShowing ? ReactDOM.createPortal(
 
-    <React.Fragment>
+    < React.Fragment >
         <div className="modal" />
         <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-            <div className="modal-header" style={{ padding: 0 }}>
+            <div className="modal-header" style={{ padding: 0, borderBottom: 'none' }}>
                 <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
                     <span aria-hidden="true">X</span>
                 </button>
             </div>
-            <div className="modal-content" style={{ border: 'none' }}>
+            <div className="modal-content" style={{ border: 'none', backgroundColor: 'transparent' }}>
                 <Iframe url={url}
                     width="100px"
                     height="100px"
@@ -24,7 +24,7 @@ const Modal = ({ isShowing, hide, url }) => isShowing ? ReactDOM.createPortal(
                     position="relative" />
             </div>
         </div>
-    </React.Fragment>, document.body
+    </React.Fragment >, document.body
 ) : null;
 
 export default Modal;

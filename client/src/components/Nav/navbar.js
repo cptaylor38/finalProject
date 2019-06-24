@@ -1,24 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './navbar.css';
 
-const Navbar = props => {
-
-    const style = {
-        background: 'green'
-    }
-
+const Navbar = ({ user, onClick }) => {
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" style={style}>
-            <Link className="navbar-brand" to="#">Navbar</Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav">
-                    <button onClick={event => props.onClick(event)}>Sign Out</button>
-                </ul>
+        <nav className="navbar">
+            <div className='logoHolder'>
+                <h1>Scraps</h1>
             </div>
+            <div className='messageHolder'>
+                <h3>Welcome, {user ? user : ''} </h3>
+            </div>
+            <ul className="navbar-nav">
+                <button onClick={event => onClick(event)}>Sign Out</button>
+            </ul>
+
         </nav>
     );
 }
