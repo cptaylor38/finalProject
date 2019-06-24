@@ -9,10 +9,15 @@ const SignUp = ({ history }) => {
         try {
             await App
                 .auth()
-                .createUserWithEmailAndPassword(email.value, password.value);
+                .createUserWithEmailAndPassword(email.value, password.value)
+                .updateCurrentUser({ displayName: this.username.value });
             history.push("/");
         } catch (error) {
             alert(error);
+            // if (error) {
+            //     console.log("It made it this far");
+            //     return <Redirect to="/login" />
+            // }
         }
     }, [history]);
 
@@ -20,6 +25,11 @@ const SignUp = ({ history }) => {
         <div>
             <h1>Sign Up</h1>
             <form onSubmit={handleSignUp}>
+                <label>
+                    Username
+                <input type="username" name="username" placeholder="Username" />
+                </label>
+
                 <label>
                     Email
                 <input type="email" name="email" placeholder="Email" />
