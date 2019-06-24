@@ -1,8 +1,21 @@
-.container-fluid .pageContainer
+body
 {
+    background: url('http://static.allbackgrounds.com/bg/cassette.jpg');
+    background-position: center center;
+    transition: background-image 10s ease-in-out;
+}
+
+.pageContainer
+{
+   display: flex;
+   flex-flow: column wrap;
+   margin-top: 20px;
+}
+
+.pageContainer > .row
+{
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 nav
@@ -12,31 +25,44 @@ nav
     flex-direction: row;
 }
 
+.journalCol
+{
+    background: green;
+    border: 5px solid black;
+    flex: 1;
+    margin: 10px auto;
+    height: 82vh;
+    justify-content: flex-start;
+}
+
+.searchCol
+{
+    background: yellow;
+    border: 5px solid black;
+    flex: 1;
+    margin: 10px auto;
+    height: 82vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .searchCriteria
 {
     display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    flex-flow: row wrap;
+    align-items: center;
+    flex-direction: column;
 }
 
-.moodCol
+.journalEntries
 {
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.resultsCol
-{
-    flex: 1;
-}
+/* @media(575) */
+/*broken breakpoint*/
 
-.resultsCol > p
-{
-    padding-top: 25px;
-    font-size: 22px;
-}
 
 
 

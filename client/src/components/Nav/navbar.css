@@ -1,7 +1,21 @@
-.navbar .navbar-expand-lg .navbar-light .bg-light
+.navbar
 {
-    display: flex;
-    justify-content: space-evenly;
-    background: green;
+    color: tomato;
+    background: black;
+    padding: 20px !important;
+    justify-content: center;
 }
+
+.buttonHolder
+{
+    color: tomato;
+}
+
+.navbar-nav
+{
+    color: white;
+}
+
+
+
 
