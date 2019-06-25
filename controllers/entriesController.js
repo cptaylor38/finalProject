@@ -14,9 +14,6 @@ module.exports = {
         db.Entry
             .create({ body: entry })
             .then(function (dbEntry) {
-                console.log(dbEntry.body);
-                const body = dbEntry.body;
-                console.log(dbEntry);
                 return db.User.findOneAndUpdate({ _id: id }, { $push: { entries: dbEntry } }, { new: true });
             })
             .then(function (dbUser) {
