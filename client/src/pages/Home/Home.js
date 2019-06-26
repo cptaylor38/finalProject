@@ -52,7 +52,6 @@ const Home = props => {
             <Navbar onClick={signOut} user={userName} />
             <div className='container-fluid pageContainer'>
                 <div className='row'>
-
                     <div className='searchCol'>
 
                     <div className="title">
@@ -67,7 +66,13 @@ const Home = props => {
                             </form>
                             <div className='resultsContainer'>
                                 {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
-                           
+                                <iframe src="https://giphy.com/embed/Ptnv8pL8QwI3m" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a></a></p>
+
+                                <div className="footer">
+                                
+                                <button class="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" width="23" height="23" />Search</button>
+                                        
+                                </div>
                  
                     {/* </div>
                     <div className='searchCol'>
@@ -87,6 +92,9 @@ const Home = props => {
                         </div>
                     </div>
       
+
+        
+
     )
 }
 

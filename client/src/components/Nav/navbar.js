@@ -6,7 +6,7 @@ const Navbar = ({ user, onClick }) => {
     return (
         <nav className="navbar">
             <div className='logoHolder'>
-                <h1>SCRAPS</h1>
+                <h1>スクラップ</h1>
             </div>
             <div className='messageHolder'>
                 <h3>Welcome, {user ? user : ''} </h3>
