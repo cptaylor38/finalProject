@@ -2,13 +2,13 @@ import * as firebase from "firebase/app";
 import 'firebase/auth'
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyBgdi1EhBr7N0MsZysRNWMCyDB43mwRqHM",
-    authDomain: "pit-crew-project.firebaseapp.com",
-    databaseURL: "https://pit-crew-project.firebaseio.com",
-    projectId: "pit-crew-project",
+    apiKey: "AIzaSyB7eNVWltYqUsjVJzON9QqtyH9VBg1rgk0",
+    authDomain: "scraps-bef0d.firebaseapp.com",
+    databaseURL: "https://scraps-bef0d.firebaseio.com",
+    projectId: "scraps-bef0d",
     storageBucket: "",
-    messagingSenderId: "359074059947",
-    appId: "1:359074059947:web:04028fab13c0251d"
+    messagingSenderId: "732859631435",
+    appId: "1:732859631435:web:f791583d7a90abb6"
 });
 
 export default app;

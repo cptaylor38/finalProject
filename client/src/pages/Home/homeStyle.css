@@ -94,16 +94,6 @@ nav
     font: black;
 }
 
-/* .container > .journalEntries
-{
-    display: inline-table;
-    align-items: center;
-    flex-direction: column;
-    float: right;
-    clear: both;
-    
-}  */
-
 .searchCriteria > p  {
     border-width:10px ;
     border-style:solid;
@@ -156,8 +146,8 @@ div.info {
     box-sizing: border-box;
     
     color: black;
-   
 }
+
 
 
 
@@ -180,6 +170,7 @@ div.info {
     padding: 4px;
    
 }  
+
 
 
 

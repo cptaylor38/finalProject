@@ -35,7 +35,6 @@ const Login = ({ history }) => {
                 .auth()
                 .createUserWithEmailAndPassword(email.value, password.value)
                 .then(res => {
-                    console.log(res.user.uid);
                     createMongoUser(res.user.uid, userName);
                 });
             history.push("/");
@@ -45,11 +44,7 @@ const Login = ({ history }) => {
     }, [history]);
 
     const createMongoUser = (userId, username) => {
-        API.createUser({ id: userId, username: username })
-            .then(res => {
-                console.log(res + 'createUserapi .then() on login.js');
-            })
-            .catch(err => console.log(err + 'createUser .catch() on login.js'));
+        API.createUser({ id: userId, username: username });
     }
 
     return (
