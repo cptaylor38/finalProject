@@ -15,21 +15,26 @@ const Home = props => {
     const [tracks, setTracks] = useState([]);
     const { currentUser } = useContext(AuthContext);
     const [userId, setUserId] = useState(null);
-
+    const [newEntry, setNewEntry] = useState(false);
+    const [entries, setEntries] = useState([]);
     const [journalState, setJournalState] = useState(false);
+    const [archivesState, setArchivesState] = useState(true);
 
     const retrieveProfile = () => {
         const user = currentUser.uid;
         API.getProfile(user)
             .then(res => {
-                console.log(res.data);
                 setUserData(res.data.username);
-                setUserId(res.data._id)
+                setUserId(res.data._id);
+                setNewEntry(false);
+                setEntries(res.data.entries);
+                console.log('getProfile on home.js ran')
             })
             .catch(err => console.log(err));
     }
 
-    useEffect(retrieveProfile, [currentUser])
+    useEffect(retrieveProfile, []);
+    useEffect(retrieveProfile, [newEntry]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -45,7 +50,6 @@ const Home = props => {
     const getTracks = (track) => {
         API.getTracksData(track)
             .then(res => {
-                console.log(res.data);
                 setTracks(res.data)
             })
             .catch(err => console.log(err));
@@ -53,10 +57,12 @@ const Home = props => {
 
     const journalClick = () => {
         setJournalState(true);
+        setArchivesState(false);
     }
 
     const archivesClick = () => {
         setJournalState(false);
+        setArchivesState(true);
     }
 
     return (
@@ -78,7 +84,7 @@ const Home = props => {
                     <div className='journalCol col-lg-5 col-md-5 col-sm-12'>
                         <div className='container journalEntries'>
                             <h2><button type='button' onClick={() => archivesClick()}>Archives</button><button type='button' onClick={() => journalClick()}>Journal</button></h2>
-                            {journalState ? <Journal userId={userId} /> : <Archives userId={userId} />}
+                            {journalState && !archivesState ? <Journal userId={userId} setNewEntry={setNewEntry} setJournalState={setJournalState} /> : <Archives userId={userId} entries={entries} retrieveProfile={retrieveProfile} />}
                         </div>
                     </div>
                 </div>

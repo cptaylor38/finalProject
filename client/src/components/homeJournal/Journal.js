@@ -1,14 +1,17 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import API from '../../utils/API';
 import './Journal.css';
 
-const Journal = ({ userId }) => {
+const Journal = ({ userId, setNewEntry, setJournalState }) => {
+    console.log(userId);
 
     const submitEntry = event => {
         event.preventDefault();
         const entry = event.target.elements.entry.value;
         archiveEntry(entry);
+        setNewEntry(true);
     }
+
 
     const archiveEntry = entry => {
         const newEntry = {
@@ -16,7 +19,7 @@ const Journal = ({ userId }) => {
             entry: entry
         }
 
-        API.createEntry(newEntry).then(res => console.log('response from createentry'));
+        API.createEntry(newEntry).then(res => setJournalState(false));
     }
 
     return (
