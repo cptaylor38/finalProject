@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Iframe from 'react-iframe';
 import './Modal.css';
-import WOW from 'wowjs';
 
 const Modal = ({ isShowing, hide, url }) => isShowing ? ReactDOM.createPortal(
 

@@ -1,18 +1,27 @@
 const db = require("../models");
 
 module.exports = {
-    findAll: function (req, res) {
-        db.Entry
-            .find(req.query)
-            .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+
+    delete: function (req, res) {
+        db.Entry.deleteOne({ _id: req.params.id })
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
     },
+
+
     create: function (req, res) {
-        console.log(req.body);
+        const id = req.body.id;
+        const entry = { body: req.body.entry };
         db.Entry
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .create(entry)
+            .then(function (dbEntry) {
+                return db.User.findOneAndUpdate({ _id: req.body.id }, { $push: { entries: dbEntry } }, { new: true });
+            })
+            .then(function (dbUser) {
+                res.json(dbUser);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
     }
 };

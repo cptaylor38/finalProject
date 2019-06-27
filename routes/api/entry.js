@@ -3,8 +3,8 @@ const entriesController = require("../../controllers/entriesController");
 
 
 router
-    .route('/')
-    .get(entriesController.findAll);
+    .route('/:id')
+    .put(entriesController.delete);
 
 router
     .route('/create')
