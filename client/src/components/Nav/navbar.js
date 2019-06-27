@@ -12,7 +12,7 @@ const Navbar = ({ user, onClick }) => {
                 <h3>Welcome, {user ? user : ''} </h3>
             </div>
             <ul className="navbar-nav">
-                <button onClick={event => onClick(event)}>Sign Out</button>
+                {/* <button onClick={event => onClick(event)}>Sign Out</button> */}
             </ul>
 
         </nav>
