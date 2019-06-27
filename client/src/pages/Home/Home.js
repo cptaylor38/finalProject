@@ -8,11 +8,7 @@ import { AuthContext } from "../../utils/Auth";
 import Journal from '../../components/homeJournal/Journal';
 import Archives from '../../components/homeArchives/Archives';
 
-
-
 const Home = props => {
-
-
     const [userName, setUserData] = useState('')
     const [moodInput, setMoodInput] = useState('');
     const [tracks, setTracks] = useState([]);
@@ -71,13 +67,12 @@ const Home = props => {
     return (
 
 
-        <div>
+        <>
             <Navbar onClick={signOut} user={userName} />
             <div className='container-fluid pageContainer'>
                 <div className='row'>
 
                     <div className='searchCol'>
-
                         <div className="title">
                             <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
@@ -90,30 +85,26 @@ const Home = props => {
                                 </form>
                                 <div className='resultsContainer'>
                                     {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
-
-
-                                    {/* </div>
-                    <div className='searchCol'>
-                    <div className="title">
-                        <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
-                            <h1 className="title">Windows 95</h1>
-                                    <button>X</button>
-                                    <button>?</button>
-                        <div className='container journalEntries'>
-         <h2><button type='button' onClick={() => archivesClick()}>Archives</button><button type='button' onClick={() => journalClick()}>Journal</button></h2>
-                            {journalState && !archivesState ? <Journal userId={userId} setNewEntry={setNewEntry} setJournalState={setJournalState} /> : <Archives userId={userId} entries={entries} retrieveProfile={retrieveProfile} />}
-                        </div>
-
-                            
-                        </div> */}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </ div>
-            </div>
-        </div>
 
+                    <div className='searchCol'>
+                        <div className="title">
+                            <img src="http://i63.tinypic.com/117hi0p.png" id='windowsImg' width="18" height="18" />
+                            <h1 className="title">Windows 95</h1>
+                            <button>X</button>
+                            <button>?</button>
+                            <div className='container journalEntries'>
+                                <div className='journalButtonHolder'><button type='button' onClick={() => archivesClick()}>Archives</button><button type='button' onClick={() => journalClick()}>Journal</button></div>
+                                {journalState && !archivesState ? <Journal userId={userId} setNewEntry={setNewEntry} setJournalState={setJournalState} /> : <Archives userId={userId} entries={entries} retrieveProfile={retrieveProfile} />}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
 
