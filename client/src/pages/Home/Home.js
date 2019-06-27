@@ -9,7 +9,7 @@ import { AuthContext } from "../../utils/Auth";
 
 
 const Home = props => {
-    
+
 
     const [userName, setUserData] = useState('')
     const [moodInput, setMoodInput] = useState('');
@@ -47,7 +47,7 @@ const Home = props => {
 
     return (
 
-        
+
         <div>
             <Navbar onClick={signOut} user={userName} />
             <div className='container-fluid pageContainer'>
@@ -55,21 +55,21 @@ const Home = props => {
 
                     <div className='searchCol'>
 
-                    <div className="title">
-                        <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
+                        <div className="title">
+                            <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
-                                    <button>X</button>
-                                    <button>?</button>
-                        <div className='container searchCriteria'>
-                    <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
-                                <input type='text' name='moodText' id='moodText' value={moodInput} placeholder='Mood' onChange={e => setMoodInput(e.target.value)}></input>
-                                <button>Search</button>
-                            </form>
-                            <div className='resultsContainer'>
-                                {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
-                           
-                 
-                    {/* </div>
+                            <button>X</button>
+                            <button>?</button>
+                            <div className='container searchCriteria'>
+                                <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
+                                    <input type='text' name='moodText' id='moodText' value={moodInput} placeholder='Mood' onChange={e => setMoodInput(e.target.value)}></input>
+                                    <button>Search</button>
+                                </form>
+                                <div className='resultsContainer'>
+                                    {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
+
+
+                                    {/* </div>
                     <div className='searchCol'>
                     <div className="title">
                         <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
@@ -79,14 +79,14 @@ const Home = props => {
                         <div className='container journalEntries'>
                             
                         </div> */}
-                    </div>
-                </div>
-            </div>
-            </div>
-            </ div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-      
+                </ div>
+            </div>
+        </div>
+
     )
 }
 

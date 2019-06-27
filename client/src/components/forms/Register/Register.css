@@ -1,15 +1,19 @@
-.registerForm
-{
-    background: wheat;
-    padding: 20px;
-    max-width: 500px !important;
-}
-
 .registerContainer
 {
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.registerTitle {
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
+    align-content: center;
+    padding: 50px;
 }
 
 .inputField
@@ -19,3 +23,20 @@
     padding: 5px;
     margin-bottom: 5px;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #C0C0C0;
+    color: white;
+    text-align: left;
+    
+    font-family: "MS Sans Serif";
+   
+   height: 45px;
+    border-top-color: #FFFFFF;
+    border-top-width: 3px;
+    border-top-style: solid;
+  }

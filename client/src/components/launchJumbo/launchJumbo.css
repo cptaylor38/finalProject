@@ -1,31 +1,35 @@
 
 .jumbotron
 {
-    padding: 2rem 1rem;
- 
-    margin-bottom: 2rem;
-   
-    border-radius: 0.3rem;
-   
-   
-   
-  background: #000064;  /* old browsers fallback color*/
-   
-  background: -webkit-linear-gradient(to right, #1BADD8, #00003E); 
-   
-  background: linear-gradient(to right, #1BADD8, #00003E);
-   
-   
-   
-   
-  
-    margin: 50px;
-    color: rgb(255, 255, 255);
+    background-image: url("https://media.giphy.com/media/loPDnvPGkYwcU/giphy.gif");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 5px;
     text-align: center;
-    font-size: 100px;
-    font-family: BLADRMF_;
-    box-shadow: 50px 50px 20px black;
+    box-shadow: 0 0 20px 10px black inset;
 }
+@keyframes animation {
+    from {
+      letter-spacing: 32px;
+    }
+    to {
+      letter-spacing: 0;
+    }
+  }
+  
+  .animated {
+    animation: animation 5s ease infinite;
+  }
+  
+  .animated {
+    font-size: 150px;
+    font-family: Prisma;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: rgb(0, 0, 0);
+  }
 
 
 
@@ -38,10 +42,15 @@
 
 @font-face {
     font-family: Lazer84;
-    src: url("../launchJumbo/fonts/Lazer84.ttf");
+    src: url("../../fonts/Lazer84.ttf");
 }
 
 @font-face {
     font-family: BLADRMF_;
-    src: url("../launchJumbo/fonts/BLADRMF_.TTF");
+    src: url("../../fonts/BLADRMF_.TTF");
+}
+
+@font-face {
+    font-family: Prisma;
+    src: url("../../fonts/Prisma.ttf");
 }

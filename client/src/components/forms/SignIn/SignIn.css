@@ -1,15 +1,57 @@
 .signUpForm
 {
-    margin-top: 100px;
+    margin-top: 50px;
     color: white;
-    background: rgba(0, 0, 0, 0.8);
     padding: 20px;
     max-width: 500px !important;
+    
 
+}
+
+.windowsBox
+{
+    font-family:"MS Sans Serif";
+    background: #C0C0C0; 
+    flex: 1;
+    margin: 10px;
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 50%;
+    outline:1px solid #000000;
+    background:#C0C0C0;
+    border-width:7px;
+    border-style:solid;
+    border-color:#FFFFFF #808080;
+  
+  
+  
+}
+
+.boxIndent {
+    font-variant-caps: all-small-caps;
+    padding: 10px;
+    margin: 0 1px;
+    border: 1px solid gray;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    box-sizing: border-box;
+    
+    color: black;
+   
+}
+
+.account {
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 .loginContainer
 {
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,4 +63,49 @@
     max-width: 200px;
     padding: 5px;
     margin-bottom: 5px;
+}
+
+.signInTitle {
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
+    align-content: center;
+    padding: 50px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #C0C0C0;
+    color: white;
+    text-align: left;
+    
+    font-family: "MS Sans Serif";
+   
+   height: 45px;
+    border-top-color: #FFFFFF;
+    border-top-width: 3px;
+    border-top-style: solid;
+  }
+
+  .button-default {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-size: 15px;
+    font-family: "MS Sans Serif";
+    color: #070707;
+    background: #bfbfbf;
+    border: 2px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-right-color: rgb(34, 33, 33);
+    border-bottom-color: rgb(34, 33, 33);
+    box-shadow: 1px 1px 0 0 #000;
+    margin: 3px;
+    text-align: center;
+    outline: none;
+    padding: 4px;
+   font-weight: bold;
 }
