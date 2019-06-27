@@ -11,6 +11,7 @@ export default {
         return axios.post('/api/entries/create', newEntry)
     },
     getProfile: function (uid) {
+        console.log(uid);
         return axios.get('/api/user/' + uid);
     },
     deleteEntry: function (uid) {

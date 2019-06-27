@@ -19,7 +19,7 @@ const TrackItem = props => {
                         <h4>{props.data.name}</h4>
                         <h5>{props.data.artist}</h5>
                         <a href={props.data.albumURL} target='_blank'>Find this on spotify.</a>
-                        <button className="button-default" onClick={toggle} onClick2={event => refreshModals()}>Preview Song</button>
+                        <button className="button-default" onClick={toggle} >Preview Song</button>
                         <div className='modalSection'>
                             <TrackModal
                                 isShowing={isShowing}

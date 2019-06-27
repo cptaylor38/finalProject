@@ -1,7 +1,6 @@
 body
 {
    cursor: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/37157f4b-0230-4377-b100-67e78c5c369d/daxsosq-13b33868-cb89-48b7-a118-60c0aecf1cf6.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM3MTU3ZjRiLTAyMzAtNDM3Ny1iMTAwLTY3ZTc4YzVjMzY5ZFwvZGF4c29zcS0xM2IzMzg2OC1jYjg5LTQ4YjctYTExOC02MGMwYWVjZjFjZjYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mBIRB0GIjccA-cIUwJpWoCCFzBZsPZ3F8ZaOCJCcy3E"), default;
-    /* background: url('https://d2ekxuuyaakxli.cloudfront.net/media/public/images/t_tumblr_off0kj8ANh1vqmadeo1_5001481412925280.gif'); */
     background-position: center center;
     transition: background-image 10s ease-in-out;
     background: url("https://thumbs.gfycat.com/HarmoniousImpracticalBrant-size_restricted.gif");
@@ -17,81 +16,47 @@ body
 @font-face {
     font-family: Japanese_3017;
     src: url("../../fonts/Japanese_3017.ttf")
-
-    
-
 }
-
-
-
 
 .pageContainer
 {
    display: flex;
    flex-flow: column wrap;
    margin-top: 20px;
-   box-shadow: 1px 1px 0 0 #000;
 }
-
-/* .pageContainer > .row
-{
-    flex: 1;
-    display: flex;
-    
-} */
 
 nav
 {
-   
-    display: flex;
+   display: flex;
     justify-content: space-around;
     flex-direction: row;
     font-family: Japanese_3017;
 }
 
-/* .journalCol
-{
-    background: green;
-    border: 5px solid black;
-    flex: 1;
-    margin: 10px auto;
-    height: 82vh;
-    justify-content: right;
-    float: right;
-    width: 50%;
-} */
-
 .searchCol
 {
-    
-    font-family:"MS Sans Serif";
+font-family:"MS Sans Serif";
     background: #C0C0C0;
-    
     flex: 1;
     margin: 10px;
-    height: 82vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    height: 62vh;
     float: left;
-    width: 50%;
+    max-width: 40%;
     outline:1px solid #000000;
     background:#C0C0C0;
     border-width:7px;
     border-style:solid;
     border-color:#FFFFFF #808080;
-  
-  
-  
 }
 
-
- .searchCriteria
+.searchCriteria
 {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 0 !important;
     font: black;
+    padding: 0 !important;
 }
 
 .searchCriteria > p  {
@@ -110,12 +75,11 @@ nav
 
 .resultsContainer {
 color: black;
+overflow-y: scroll;
+overflow-x: scroll;
+max-height: 350px;
+margin-bottom: 0;
 }
-
-
-
-
-
 
 .container.trackContainer {
     padding: 2px;
@@ -124,7 +88,6 @@ color: black;
     border-right-color: #fff;
     border-bottom-color: #fff;
     box-sizing: border-box;
-    /* height: 100px; */
     color: black;
     
 } 
@@ -135,7 +98,6 @@ color: black;
 
 }
 
-
 div.info {
     font-variant-caps: all-small-caps;
     padding: 2px;
@@ -144,12 +106,8 @@ div.info {
     border-right-color: #fff;
     border-bottom-color: #fff;
     box-sizing: border-box;
-    
     color: black;
 }
-
-
-
 
 .button-default {
     -webkit-font-smoothing: none;
@@ -168,27 +126,16 @@ div.info {
     text-align: center;
     outline: none;
     padding: 4px;
-   
 }  
 
-
-
-
-
-
-
-  div.title{
+div.title{
     height:18px;
     width:100% !important;
     background:black;
     color:#FFF;
     background-origin: padding-box;
     box-sizing: border-box;
-
-  
-  
-    
-  }
+}
   
   h1.title{
     margin:2px 0 0 1px;
@@ -198,16 +145,9 @@ div.info {
     font-size:11px;
     width: 100px;
     position: sticky;
-
-
-  }
-
-
+}
 
 .title > button{
-  /*position:absolute;
-  right:3px;
-  top:3px;*/
   margin:2px 2px 2px 0;
   float:right;
   width:14px;
@@ -220,11 +160,8 @@ div.info {
   font-weight:bold;
   font-family:Tahoma;
   text-align:center;
-  
-  
 }
   
-
 div.content {
     padding: 3px;
     margin: 0 1px;
@@ -234,15 +171,147 @@ div.content {
     box-sizing: border-box;
     height: 100px;
 }
- img {
+
+img {
      float: left;
- }
+}
 
 .row {
- content: "";
   display: table;
+  justify-content: space-evenly;
   clear: both;
   box-sizing: border-box;
-  width: 500px;
-  
 }
+
+.journalButtonHolder
+{
+    background: black;
+    padding: 3px 10px;
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+}
+
+.journalButtonHolder > button
+{
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-size: 15px;
+    font-family: "MS Sans Serif";
+    color: #070707;
+    background: #bfbfbf;
+    border: 2px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-right-color: rgb(34, 33, 33);
+    border-bottom-color: rgb(34, 33, 33);
+    box-shadow: 1px 1px 0 0 #000;
+    margin: 0 auto;
+    text-align: center;
+    outline: none;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #C0C0C0;
+    color: white;
+    text-align: left;
+    
+    font-family: "MS Sans Serif";
+   
+   height: 45px;
+    border-top-color: #FFFFFF;
+    border-top-width: 3px;
+    border-top-style: solid;
+  }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon2 {
+    float: right;
+   clear: both;
+   position: relative; z-index: 900; left: -120.156px; top: -60px;
+
+
+}
+
+
+.button-default2 {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-size: 15px;
+    font-family: "MS Sans Serif";
+    color: #070707;
+    background: #bfbfbf;
+  
+    margin: 6px;
+    text-align: center;
+    outline: none;
+    padding: 4px;
+   font-weight: bold;
+   float: right;
+
+   
+   border: 1px solid gray;
+   border-right-color: #fff;
+   border-bottom-color: #fff;
+   box-sizing: border-box;
+}  
+
+.journalCol
+{
+    font-family:"MS Sans Serif";
+    background: #C0C0C0;
+    flex: 1;
+    margin: 10px;
+    float: left;
+    max-width: 40%;
+    outline:1px solid #000000;
+    background:#C0C0C0;
+    border-width:7px;
+    border-style:solid;
+    border-color:#FFFFFF #808080;
+    position: relative;
+}
+
+#root > div > div > div.row > div.journalCol > div > div
+{
+    margin: 0;
+    padding: 0;
+}
+
+#cdIcon
+{
+    height: 75% !important;
+    width: 75% !important;
+    position: relative; 
+    left: 13%;
+}
+
+.searchFormContainer
+{
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.archivesHolder
+{
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 400px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+}
+
+

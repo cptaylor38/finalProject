@@ -14,11 +14,7 @@ const LaunchJumbo = props => {
     return (
         <>
             <div className='jumbotron'>
-                <h1 className="display-4 wow slideInRight">Hello, world!</h1>
-                <p className="lead wow slideInRight">This is a sample</p>
-                <header className="my-4 wow slideInRight">
-                    <p>It uses utility classes</p>
-                </header>
+                <h1 className="animated">Scraps</h1>
             </div>
         </>
     )

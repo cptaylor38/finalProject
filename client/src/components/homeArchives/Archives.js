@@ -12,7 +12,7 @@ const Archives = ({ userId, entries, retrieveProfile }) => {
 
     return (
         <>
-            {userId && entries ? entries.map(item => <JournalEntry key={item._id} data={item} deleteButton={deleteButton} />) : 'No journal entries yet.'}
+            {userId && entries.length > 0 ? entries.map(item => <JournalEntry key={item._id} data={item} deleteButton={deleteButton} />) : 'No journal entries.'}
         </>
     );
 }

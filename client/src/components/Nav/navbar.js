@@ -11,10 +11,9 @@ const Navbar = ({ user, onClick }) => {
             <div className='messageHolder'>
                 <h3>Welcome, {user ? user : ''} </h3>
             </div>
-            <ul className="navbar-nav">
-                <button onClick={event => onClick(event)}>Sign Out</button>
-            </ul>
-
+            <div className='faceHolder'>
+                <img src='https://slack-imgs.com/?c=1&url=https%3A%2F%2Fthumbs.gfycat.com%2FOrdinaryPartialAmericanredsquirrel-size_restricted.gif' id='facePic'></img>
+            </div>
         </nav>
     );
 }

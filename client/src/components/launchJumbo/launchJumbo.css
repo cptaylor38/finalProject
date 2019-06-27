@@ -1,12 +1,56 @@
 .jumbotron
 {
-    background-color: greenyellow !important;
-    border-bottom: 5px solid black;
+    background-image: url("https://media.giphy.com/media/loPDnvPGkYwcU/giphy.gif");
+    padding: 1rem;
+    max-height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 5px;
+    text-align: center;
+    box-shadow: 0 0 20px 10px black inset;
 }
+@keyframes animation {
+    from {
+      letter-spacing: 32px;
+    }
+    to {
+      letter-spacing: 0;
+    }
+  }
+  
+  .animated {
+    animation: animation 5s ease infinite;
+  }
+  
+  .animated {
+    font-size: 125px;
+    font-family: Prisma;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: rgb(0, 0, 0);
+  }
+
+
 
 @media (min-width: 576px)
 {
     .jumbotron{
-        padding: 0;
+        padding: 0 !important;
     }
+}
+
+@font-face {
+    font-family: Lazer84;
+    src: url("../../fonts/Lazer84.ttf");
+}
+
+@font-face {
+    font-family: BLADRMF_;
+    src: url("../../fonts/BLADRMF_.TTF");
+}
+
+@font-face {
+    font-family: Prisma;
+    src: url("../../fonts/Prisma.ttf");
 }
