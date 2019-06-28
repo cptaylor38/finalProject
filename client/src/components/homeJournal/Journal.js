@@ -7,18 +7,22 @@ const Journal = ({ userId, setNewEntry, setJournalState }) => {
 
     const submitEntry = event => {
         event.preventDefault();
-        const entry = event.target.elements.entry.value;
-        if (entry) {
-            archiveEntry(entry);
+        const title = event.target.elements.title.value;
+        const noteBody = event.target.elements.body.value;
+
+        const entryData = { title: title, body: noteBody };
+        if (entryData) {
+            archiveEntry(entryData);
             setNewEntry(true);
         }
     }
 
 
-    const archiveEntry = entry => {
+    const archiveEntry = entryData => {
         const newEntry = {
             id: userId,
-            entry: entry
+            title: entryData.title,
+            body: entryData.body
         }
 
         API.createEntry(newEntry).then(res => setJournalState(false));
@@ -29,7 +33,7 @@ const Journal = ({ userId, setNewEntry, setJournalState }) => {
             <div className='note'>
                 <div className="form-group shadow-textarea note_cnt">
                     <textarea className="title" id="exampleFormControlTextarea6" name='title' placeholder="Note title"></textarea>
-                    <textarea className="cnt" placeholder="Dear Diary," name='entry' row='20'></textarea>
+                    <textarea className="cnt" placeholder="Dear Diary," name='body' row='20'></textarea>
                 </div>
             </div>
             <button type="submit" id='noteSubmit'><img src='http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-Clipart.png' id='pinImg'></img></button>

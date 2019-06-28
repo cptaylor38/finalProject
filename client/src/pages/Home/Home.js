@@ -76,7 +76,6 @@ const Home = props => {
 
         <>
             <Navbar user={userName} />
-            <img className="icon2" src="https://win98icons.alexmeub.com/icons/png/html-5.png"></img>
             <div className='container-fluid pageContainer'>
                 <div className='row'>
                     <div className='searchCol'>

@@ -6,10 +6,6 @@ import './TrackItem.css'
 const TrackItem = props => {
     const { isShowing, toggle } = useModal();
 
-    const refreshModals = () => {
-        document.getElementsByClassName('modalSection').empty();
-    }
-
     return (
         <React.Fragment>
             <div className='row'>
@@ -25,7 +21,6 @@ const TrackItem = props => {
                                 isShowing={isShowing}
                                 hide={toggle}
                                 url={props.data.url}
-                                refresh={refreshModals}
                             />
                         </div>
                     </div>
