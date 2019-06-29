@@ -1,6 +1,8 @@
 import * as firebase from "firebase/app";
 import 'firebase/auth'
 
+console.log('firebase.js');
+
 const app = firebase.initializeApp({
     apiKey: "AIzaSyB7eNVWltYqUsjVJzON9QqtyH9VBg1rgk0",
     authDomain: "scraps-bef0d.firebaseapp.com",

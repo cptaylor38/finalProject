@@ -5,11 +5,11 @@ import './ArchiveModal.css';
 
 const ArchiveModal = ({ isShowing, hide, modalData, deleteButton }) => isShowing ? ReactDOM.createPortal(
 
-    < div >
-        <div className="modal archiveModal" />
-        <div className="modal-wrapper archivedWrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-            <div className="modal-content aboveBody archiveObject" style={{ position: 'absolute', top: '30%', left: '10%' }}>
-                <div className='body'>
+    <>
+        <div className='archiveModal' />
+        <div className="archivedWrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
+            <div className="modal-content aboveBody archiveObject" style={{ position: 'absolute', top: '30%', left: '10%', width: 'auto' }}>
+                <div className='bodyDiv'>
                     <div className="container archiveObject">
                         <div className="notepad">
                             <div className="notepad-bar">
@@ -48,7 +48,7 @@ const ArchiveModal = ({ isShowing, hide, modalData, deleteButton }) => isShowing
                 </div>
             </div>
         </div>
-    </div >, document.body
+    </>, document.body
 ) : null;
 
 export default ArchiveModal;
