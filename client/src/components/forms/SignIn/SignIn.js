@@ -26,7 +26,8 @@ const SignIn = ({ onSubmit, setNewUser }) => {
                             <div className="signInTitle">
                                 <h1>Sign In</h1>
                             </div>
-                            <div className='scrollContents'>
+
+      <div className='scrollContents'>
                                 <div className="boxIndent">
                                     <form onSubmit={onSubmit}>
                                         <div className='container loginContainer'>
@@ -55,9 +56,12 @@ const SignIn = ({ onSubmit, setNewUser }) => {
                 </div>
             </div>
             <div className="footer">
-                <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" width="23" height="23" />Start</button>
+<button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" width="23" height="23" />Start</button>
+
             </div>
         </div>
+
+
     )
 }
 export default SignIn;
