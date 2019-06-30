@@ -13,7 +13,13 @@
     font-weight: bold;
     font-family: sans-serif;
     align-content: center;
-    padding: 50px;
+    padding: 40px;
+    margin: 0 1px;
+    margin-bottom: 2px;
+    border: 1px solid gray;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    box-sizing: border-box;
 }
 
 .inputField

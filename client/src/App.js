@@ -9,6 +9,8 @@ import {
 import { AuthProvider } from "./utils/Auth";
 import PrivateRoute from "./privateRoute";
 
+console.log('App.js');
+
 function App() {
   return (
     <AuthProvider>

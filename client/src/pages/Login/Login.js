@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import App from "../../utils/firebase";
 import SignIn from '../../components/forms/SignIn/SignIn';
@@ -9,12 +9,21 @@ import API from '../../utils/API';
 import './Login.css';
 
 const Login = ({ history }) => {
-
     const [newUser, setNewUser] = useState(false);
+
+    const checkUser = () => {
+        // const user = App.auth().currentUser;
+        App.auth().onAuthStateChanged(user => {
+            if (user) history.push('/');
+        })
+    }
+
+    useEffect(checkUser, []);
 
     const handleLogin = useCallback(async event => {
         event.preventDefault();
         const { email, password } = event.target.elements;
+
         try {
             await App
                 .auth()
@@ -56,5 +65,8 @@ const Login = ({ history }) => {
         </>
     )
 };
+
+
+
 
 export default withRouter(Login);

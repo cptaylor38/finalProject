@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
   "dependencies": {
     "antd": "^3.19.6",
     "axios": "^0.19.0",
@@ -16,6 +15,7 @@
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-draggable": "^3.3.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "wowjs": "^1.1.3"

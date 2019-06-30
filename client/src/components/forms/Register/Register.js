@@ -15,7 +15,7 @@ const Register = ({ onSubmit, setNewUser }) => {
                     <div className='windowsBox'>
 
                         <div className="title">
-                            <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
+                            <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
                             <button>X</button>
                             <button>?</button>
@@ -23,19 +23,21 @@ const Register = ({ onSubmit, setNewUser }) => {
                             <div className="registerTitle">
                                 <h1>Register</h1>
                             </div>
-                            <div className="boxIndent">
-                                <form onSubmit={onSubmit}>
-                                    <div className='container registerContainer'>
-                                        <label> Email </label>
-                                        <input type="email" className='inputField' name="email" placeholder="Email" />
-                                        <label> Password </label>
-                                        <input type="password" className='inputField' name="password" placeholder="Password" />
-                                        <label> Username </label>
-                                        <input type="username" className='inputField' name="username" placeholder="Username" />
-                                    </div>
-                                    <button className="button-default" type="submit" style={{ marginTop: '20px' }}>Register</button>
-                                    <button className="button-default" type="button" onClick={returnLogin}>Return to Login.</button>
-                                </form>
+                            <div className='scrollContents'>
+                                <div className="boxIndent">
+                                    <form onSubmit={onSubmit}>
+                                        <div className='container registerContainer'>
+                                            <label> Email </label>
+                                            <input type="email" className='inputField' name="email" placeholder="Email" />
+                                            <label> Password </label>
+                                            <input type="password" className='inputField' name="password" placeholder="Password" />
+                                            <label> Username </label>
+                                            <input type="username" className='inputField' name="username" placeholder="Username" />
+                                        </div>
+                                        <button className="button-default" type="submit" style={{ marginTop: '20px' }}>Register</button>
+                                        <button className="button-default" type="button" onClick={returnLogin}>Return to Login.</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,7 +45,8 @@ const Register = ({ onSubmit, setNewUser }) => {
             </div>
             <div className="footer">
 
-                <button class="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" width="23" height="23" />Start</button>
+                <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="23" height="23" />Start</button>
+
 
             </div>
         </div>

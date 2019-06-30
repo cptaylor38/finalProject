@@ -1,6 +1,6 @@
 .signUpForm
 {
-    margin-top: 50px;
+    margin-top: 30px;
     color: white;
     padding: 20px;
     max-width: 500px !important;
@@ -15,9 +15,9 @@
     flex: 1;
     margin: 10px;
     height: 400px;
-    overflow-y: scroll;
+overflow-y: scroll;
     overflow-x: hidden;
-    width: 50%;
+width: 50%;
     outline:1px solid #000000;
     background:#C0C0C0;
     border-width:7px;
@@ -70,7 +70,14 @@
     font-weight: bold;
     font-family: sans-serif;
     align-content: center;
-    padding: 50px;
+padding: 40px 40px 20px 40px;
+    margin: 0 1px;
+    margin-bottom: 2px;
+    border: 1px solid gray;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    box-sizing: border-box;
+
 }
 
 .footer {
@@ -108,4 +115,12 @@
     outline: none;
     padding: 4px;
    font-weight: bold;
+}
+
+.scrollContents
+{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 200px;
+
 }

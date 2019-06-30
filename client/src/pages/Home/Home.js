@@ -8,12 +8,8 @@ import { AuthContext } from "../../utils/Auth";
 import Journal from '../../components/homeJournal/Journal';
 import Archives from '../../components/homeArchives/Archives';
 
-
-
 const Home = props => {
-
-
-    const [userName, setUserData] = useState('')
+const [userName, setUserData] = useState('')
     const [moodInput, setMoodInput] = useState('');
     const [tracks, setTracks] = useState([]);
     const { currentUser } = useContext(AuthContext);
@@ -22,6 +18,8 @@ const Home = props => {
     const [entries, setEntries] = useState([]);
     const [journalState, setJournalState] = useState(false);
     const [archivesState, setArchivesState] = useState(true);
+    const [resultsStyle, setResultsStyle] = useState({ overflowX: 'hidden', overflowY: 'hidden' });
+    const [searchFormStyle, setSearchFormStyle] = useState({ display: 'none' });
 
     const retrieveProfile = () => {
         const user = currentUser.uid;
@@ -43,7 +41,11 @@ const Home = props => {
         event.preventDefault();
         setTracks([]);
         getTracks(moodInput);
+    }
 
+    const toggleSearch = event => {
+        if (searchFormStyle.display === 'block') setSearchFormStyle({ display: 'none' });
+        else setSearchFormStyle({ display: 'block' });
     }
 
     const signOut = () => {
@@ -53,7 +55,8 @@ const Home = props => {
     const getTracks = (track) => {
         API.getTracksData(track)
             .then(res => {
-                setTracks(res.data)
+                setTracks(res.data);
+                setResultsStyle({ overflowX: 'scroll', overflowY: 'scroll' });
             })
             .catch(err => console.log(err));
     }
@@ -71,50 +74,58 @@ const Home = props => {
     return (
 
 
-        <div>
-            <Navbar onClick={signOut} user={userName} />
+<>
+            <Navbar user={userName} />
             <div className='container-fluid pageContainer'>
                 <div className='row'>
-
-                    <div className='searchCol'>
-
+<div className='searchCol'>
                         <div className="title">
-                            <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
+                            <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
+                            <h1 className="title">CD Player</h1>
                             <button>X</button>
                             <button>?</button>
-                            <div className='container searchCriteria'>
-                                <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
+                            <div className='searchFormContainer' style={searchFormStyle}>
+                                <form id='searchInputBox' onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
                                     <input type='text' name='moodText' id='moodText' value={moodInput} placeholder='Mood' onChange={e => setMoodInput(e.target.value)}></input>
-                                    <button>Search</button>
+                                    <button className='button-default'>Search</button>
                                 </form>
-                                <div className='resultsContainer'>
-                                    {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) : ''}
-
-
-                                    {/* </div>
-                    <div className='searchCol'>
-                    <div className="title">
-                        <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
-                            <h1 className="title">Windows 95</h1>
-                                    <button>X</button>
-                                    <button>?</button>
-                        <div className='container journalEntries'>
-         <h2><button type='button' onClick={() => archivesClick()}>Archives</button><button type='button' onClick={() => journalClick()}>Journal</button></h2>
-                            {journalState && !archivesState ? <Journal userId={userId} setNewEntry={setNewEntry} setJournalState={setJournalState} /> : <Archives userId={userId} entries={entries} retrieveProfile={retrieveProfile} />}
-                        </div>
-
-                            
-                        </div> */}
+                            </div>
+                            <div className='container searchCriteria'>
+                                <div className='resultsContainer' style={resultsStyle} >
+                                    {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) :
+                                        <img src="http://bestanimations.com/Computers/Discs/cd-animated-gif-11.gif" alt='cd gif' onClick={event => toggleSearch(event)} id='cdIcon' />}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </ div>
-            </div>
-        </div>
 
-    )
+<div className='journalCol'>
+                        <div className="title">
+                            <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' id='windowsImg' width="18px" height="18px" />
+                            <h1 className="title">Windows 95</h1>
+                            <button>X</button>
+                            <button>?</button>
+                            <div className='container journalEntries'>
+                                <div className='archivesHolder'>
+                                    {journalState && !archivesState ? <Journal userId={userId} setNewEntry={setNewEntry} setJournalState={setJournalState} /> : <Archives userId={userId} entries={entries} retrieveProfile={retrieveProfile} />}
+                                </div>
+                                <div className='journalButtonHolder'>
+                                    <button className='button-default' type='button' onClick={() => archivesClick()}>Archives</button>
+                                    <button className='button-default' type='button' onClick={() => journalClick()}>Journal</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+                <div className="footer">
+                    <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="23" height="23" />Start</button>
+                    <button className="button-default2" onClick={event => signOut(event)}>Sign Out </button>
+                </div>
+            </div>
+
+        </>
+)
 }
 
 export default Home;

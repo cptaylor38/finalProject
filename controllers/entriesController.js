@@ -11,7 +11,7 @@ module.exports = {
 
     create: function (req, res) {
         const id = req.body.id;
-        const entry = { body: req.body.entry };
+        const entry = { title: req.body.title, body: req.body.body };
         db.Entry
             .create(entry)
             .then(function (dbEntry) {

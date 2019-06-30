@@ -14,8 +14,8 @@ const LaunchJumbo = props => {
     return (
         <>
             <div className='jumbotron'>
-                <h1 class="animated">Scraps</h1>
-            </div>
+<h1 className="animated">Scraps</h1>
+</div>
         </>
     )
 }

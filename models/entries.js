@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EntriesSchema = new Schema({
+    title: {
+        type: String
+    },
     body: {
         type: String,
         entry: { type: Schema.Types.ObjectId, ref: 'User' }

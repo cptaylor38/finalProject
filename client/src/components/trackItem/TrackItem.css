@@ -1,13 +1,31 @@
-.trackContainer
+.trackContainer.container
 {
     display: flex;
     flex-direction: row;
     margin: 20px;
     align-items: center;
+    flex: 1;
+    padding-left: 0;
+    padding-right: 10px;
 }
 
 .trackContainer > img
 {
     width: 200px;
     height: 200px;
+}
+
+.trackContainerRow
+{
+    padding-left: 0;
+    padding-right: 0;
+    flex: 1;
+}
+
+@media(max-width: 975px)
+{
+    .trackContainer.container 
+    {
+        margin: 0;
+    }
 }

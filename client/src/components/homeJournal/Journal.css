@@ -1,0 +1,75 @@
+.note {
+    flex: 1;
+	float: left;
+	display: block;
+	position: relative;
+	padding: 1em;
+	min-width: 300px;
+	min-height: 300px;
+	margin: 0 30px 30px 0;
+	background: linear-gradient(top, rgba(0,0,0,.05), rgba(0,0,0,.25));
+	background-color: #FFFD75;
+	box-shadow: 5px 5px 10px -2px rgba(33,33,33,.3);
+	transform: rotate(2deg);
+	transform: skew(-1deg,1deg);
+	transition: transform .15s;
+    z-index: 1;
+}
+
+textarea {
+    background-color: transparent;
+    border: none;
+    resize: vertical;
+    font-family: "Gloria Hallelujah", cursive;
+    width: 100%;
+    padding: 5px;
+}
+
+textarea:focus
+{
+    outline: none;
+	border: none;
+}
+
+.cnt
+{
+    height: 186px;
+    resize: none;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+.form-group
+{
+    margin-bottom: 0;
+}
+
+#exampleFormControlTextarea6
+{
+    resize: none;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+#noteSubmit
+{
+    background: none;
+    outline: none;
+    border: none;
+}
+
+#pinImg
+{
+    height: 80%;
+    width: 70%;
+}
+
+#pinImg:hover
+{
+    height: 100%;
+    width: 100%;
+}
+
+#journalForm
+{
+    display: flex;
+    flex-direction: row;
+}
