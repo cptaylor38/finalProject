@@ -47,6 +47,7 @@ const Register = ({ onSubmit, setNewUser }) => {
 
                 <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="23" height="23" />Start</button>
 
+
             </div>
         </div>
 

@@ -9,7 +9,7 @@ import Journal from '../../components/homeJournal/Journal';
 import Archives from '../../components/homeArchives/Archives';
 
 const Home = props => {
-    const [userName, setUserData] = useState('')
+const [userName, setUserData] = useState('')
     const [moodInput, setMoodInput] = useState('');
     const [tracks, setTracks] = useState([]);
     const { currentUser } = useContext(AuthContext);
@@ -74,11 +74,11 @@ const Home = props => {
     return (
 
 
-        <>
+<>
             <Navbar user={userName} />
             <div className='container-fluid pageContainer'>
                 <div className='row'>
-                    <div className='searchCol'>
+<div className='searchCol'>
                         <div className="title">
                             <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
@@ -100,7 +100,7 @@ const Home = props => {
                         </div>
                     </div>
 
-                    <div className='journalCol'>
+<div className='journalCol'>
                         <div className="title">
                             <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' id='windowsImg' width="18px" height="18px" />
                             <h1 className="title">Windows 95</h1>
@@ -117,7 +117,7 @@ const Home = props => {
                             </div>
                         </div>
                     </div>
-                </div>
+</div>
                 <div className="footer">
                     <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="23" height="23" />Start</button>
                     <button className="button-default2" onClick={event => signOut(event)}>Sign Out </button>
@@ -125,7 +125,7 @@ const Home = props => {
             </div>
 
         </>
-    )
+)
 }
 
 export default Home;
