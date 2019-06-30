@@ -5,11 +5,8 @@ import SignIn from '../../components/forms/SignIn/SignIn';
 import Register from '../../components/forms/Register/Register';
 import Jumbotron from '../../components/launchJumbo/launchJumbo';
 import API from '../../utils/API';
-import firebase from 'firebase/app';
 
 import './Login.css';
-
-console.log('login.js page');
 
 const Login = ({ history }) => {
     const [newUser, setNewUser] = useState(false);

@@ -80,7 +80,7 @@ const Home = props => {
                 <div className='row'>
                     <div className='searchCol'>
                         <div className="title">
-                            <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
+                            <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
                             <h1 className="title">CD Player</h1>
                             <button>X</button>
@@ -94,7 +94,7 @@ const Home = props => {
                             <div className='container searchCriteria'>
                                 <div className='resultsContainer' style={resultsStyle} >
                                     {tracks && tracks.length !== 0 ? tracks.filter((item) => item != null).map(item => <TrackItems key={item.id} data={item} />) :
-                                        <img src="http://bestanimations.com/Computers/Discs/cd-animated-gif-11.gif" onClick={event => toggleSearch(event)} id='cdIcon' />}
+                                        <img src="http://bestanimations.com/Computers/Discs/cd-animated-gif-11.gif" alt='cd gif' onClick={event => toggleSearch(event)} id='cdIcon' />}
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ const Home = props => {
 
                     <div className='journalCol'>
                         <div className="title">
-                            <img src="http://i63.tinypic.com/117hi0p.png" id='windowsImg' width="18px" height="18px" />
+                            <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' id='windowsImg' width="18px" height="18px" />
                             <h1 className="title">Windows 95</h1>
                             <button>X</button>
                             <button>?</button>
@@ -111,14 +111,15 @@ const Home = props => {
                                     {journalState && !archivesState ? <Journal userId={userId} setNewEntry={setNewEntry} setJournalState={setJournalState} /> : <Archives userId={userId} entries={entries} retrieveProfile={retrieveProfile} />}
                                 </div>
                                 <div className='journalButtonHolder'>
-                                    <button type='button' onClick={() => archivesClick()}>Archives</button><button type='button' onClick={() => journalClick()}>Journal</button>
+                                    <button className='button-default' type='button' onClick={() => archivesClick()}>Archives</button>
+                                    <button className='button-default' type='button' onClick={() => journalClick()}>Journal</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="footer">
-                    <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" width="23" height="23" />Start</button>
+                    <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="23" height="23" />Start</button>
                     <button className="button-default2" onClick={event => signOut(event)}>Sign Out </button>
                 </div>
             </div>

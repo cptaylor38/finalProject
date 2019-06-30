@@ -55,9 +55,3 @@ export default ArchiveModal;
 
 
 
-{/* <button type="button" className="archiveModalCloser" data-dismiss="archiveModal" aria-label="Close" onClick={hide}>
-                                <span aria-hidden="true">X</span>
-                            </button> */}
-
-
-                            // <button type="button" className='archiveDelete' onClick={(id) => deleteButton(modalData.id)}>Delete this file.</button>

@@ -36,7 +36,7 @@ const Journal = ({ userId, setNewEntry, setJournalState }) => {
                     <textarea className="cnt" placeholder="Dear Diary," name='body' row='20'></textarea>
                 </div>
             </div>
-            <button type="submit" id='noteSubmit'><img src='https://i.gifer.com/origin/c6/c6afab251a20e6d0eb80b983450bc66e_w200.gif' id='pinImg'></img></button>
+            <button type="submit" id='noteSubmit'><img src='https://i.gifer.com/origin/c6/c6afab251a20e6d0eb80b983450bc66e_w200.gif' alt='Clippy' id='pinImg'></img></button>
         </form>
     )
 }

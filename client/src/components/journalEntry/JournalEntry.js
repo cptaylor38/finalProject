@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './JournalEntry.css';
 import useModal from '../hooks/useModal';
 import ArchiveModal from '../ArchiveModal/ArchiveModal';
-import Draggable, { handleStart, handleDrag, handleStop } from 'react-draggable';
 
 const Entry = ({ data, deleteButton }) => {
 
@@ -35,7 +34,7 @@ const Entry = ({ data, deleteButton }) => {
         <React.Fragment>
             <div className='archiveFileContainer'>
                 <div className='entryFileContainer container'>
-                    <img src='https://win98icons.alexmeub.com/icons/png/html-5.png' className='fileImgBtn' type='button' onClick={toggle} id='archiveItemButton'></img>
+                    <img src='https://win98icons.alexmeub.com/icons/png/html-5.png' alt='file icon' className='fileImgBtn' type='button' onClick={toggle} id='archiveItemButton'></img>
                     <p>{data.title}</p>
                 </div>
 

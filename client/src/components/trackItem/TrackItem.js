@@ -8,9 +8,9 @@ const TrackItem = props => {
 
     return (
         <React.Fragment>
-            <div className='row'>
+            <div className='row trackContainerRow'>
                 <div className='container trackContainer'>
-                    <img src={props.data.imageURL} alt={`Album Image`} ></img>
+                    <img src={props.data.imageURL} alt='Album' ></img>
                     <div className='info'>
                         <h4>{props.data.name}</h4>
                         <h5>{props.data.artist}</h5>

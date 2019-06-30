@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import API from '../../utils/API';
 import './Archives.css';
 import JournalEntry from '../journalEntry/JournalEntry';
@@ -6,7 +6,7 @@ import JournalEntry from '../journalEntry/JournalEntry';
 const Archives = ({ userId, entries, retrieveProfile }) => {
 
     const deleteButton = id => {
-        API.deleteEntry(id)
+        API.deleteEntry(id);
         retrieveProfile();
     }
 

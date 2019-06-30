@@ -15,7 +15,7 @@ const Register = ({ onSubmit, setNewUser }) => {
                     <div className='windowsBox'>
 
                         <div className="title">
-                            <img src="http://i63.tinypic.com/117hi0p.png" width="18" height="18" />
+                            <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="18" height="18" />
                             <h1 className="title">Windows 95</h1>
                             <button>X</button>
                             <button>?</button>
@@ -45,7 +45,7 @@ const Register = ({ onSubmit, setNewUser }) => {
             </div>
             <div className="footer">
 
-                <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" width="23" height="23" />Start</button>
+                <button className="button-default"> <img src="http://i63.tinypic.com/117hi0p.png" alt='windows 98 logo' width="23" height="23" />Start</button>
 
             </div>
         </div>

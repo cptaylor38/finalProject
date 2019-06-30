@@ -315,4 +315,10 @@ a {
     padding: 10px;
 }
 
+@media (max-width: 1499px)
+{
+    .resultsContainer {
+        max-height: 300px;
+    }
+}
 
